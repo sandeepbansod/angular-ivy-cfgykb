@@ -1,4 +1,33 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<div class="container pt-4">
+  <hello name="{{ title }}"></hello>
+
+  <div class="pt-4">
+    <form [formGroup]="addRecord" (ngSubmit)="saveRecords()">
+      <div class="row">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Name"
+            formControlName="name"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Age"
+            formControlName="age"
+          />
+        </div>
+        <div class="col-auto">
+          <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <hr />
+
+  <app-user-records [inputUserData]="saveUserData"></app-user-records>
+</div>
